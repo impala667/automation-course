@@ -7,7 +7,7 @@ import org.junit.jupiter.api.*;
 
 import java.util.Map;
 
-public class StatusCodeTests extends BaseTest {
+public class StatusCodeInterceptionTest extends BaseTest {
     @Test
     void statusCodeInterception() {
         page.navigate("https://the-internet.herokuapp.com/status_codes");

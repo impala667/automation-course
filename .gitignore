@@ -44,3 +44,6 @@ build/
 .search_results.png
 **/search_results.png
 /search_results.png
+
+.allure-Results
+/allure-Results

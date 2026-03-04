@@ -34,17 +34,17 @@ public class CartTest extends BaseTest {
     void attachScreenshotOnFailure() {
         // Используем поле, унаследованное от BaseTest
         if (extensionContext.getExecutionException().isPresent()) {
-            System.out.println("🔍 Тест упал, делаем скриншот");
+            System.out.println("Тест упал, делаем скриншот");
             try {
                 byte[] screenshot = page.screenshot();
                 Allure.addAttachment("Screenshot on Failure", "image/png",
                         new ByteArrayInputStream(screenshot), ".png");
-                System.out.println("✅ Скриншот добавлен в Allure");
+                System.out.println("Скриншот добавлен в Allure");
             } catch (Exception e) {
-                System.out.println("❌ Ошибка при создании скриншота: " + e.getMessage());
+                System.out.println("Ошибка при создании скриншота: " + e.getMessage());
             }
         } else {
-            System.out.println("✅ Тест успешен, скриншот не нужен");
+            System.out.println("Тест успешен, скриншот не нужен");
         }
     }
 }

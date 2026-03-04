@@ -15,7 +15,7 @@ public class testHomePageVisualTest extends BaseTest {
     void compareScreenshots() throws IOException {
         page.navigate("https://the-internet.herokuapp.com/");
         Path actualPath = Paths.get("target/screenshots/actual.png");
-        Path expectedPath = Paths.get("target/screenshots/expected.png");
+        Path expectedPath = Paths.get("expected.png");
         Path diffPath = Paths.get("target/screenshots/diff.png");
         page.screenshot(new Page.ScreenshotOptions()
                 .setPath(actualPath));

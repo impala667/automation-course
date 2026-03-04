@@ -22,6 +22,6 @@ public class CartTest extends BaseTest{
     }
 
     private Path getTimestampPath(String filename) {
-        return Paths.get(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss")) + "/" + filename);
+        return Paths.get("target/screenshots/" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss")) + "/" + filename);
     }
 }

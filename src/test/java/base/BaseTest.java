@@ -17,7 +17,7 @@ public class BaseTest {
                 .setHeadless(true)
                 .setSlowMo(1500));
         context = browser.newContext(new Browser.NewContextOptions()
-                .setRecordVideoDir(Paths.get("videos/")));
+                .setRecordVideoDir(Paths.get("target/videos/")));
         page = context.newPage();
     }
 

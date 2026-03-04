@@ -4,7 +4,6 @@ import com.microsoft.playwright.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.ExtensionContext;
-import java.nio.file.Paths;
 
 @ExtendWith(ContextCaptureExtension.class)
 public class BaseTest {
@@ -21,8 +20,7 @@ public class BaseTest {
         browser = playwright.chromium().launch(new BrowserType.LaunchOptions()
                 .setHeadless(true)
                 .setSlowMo(1500));
-        context = browser.newContext(new Browser.NewContextOptions()
-                .setRecordVideoDir(Paths.get("target/videos/")));
+        context = browser.newContext();
         page = context.newPage();
     }
 

@@ -1,10 +1,15 @@
 package base;
 
 import com.microsoft.playwright.*;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import java.nio.file.*;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.extension.ExtensionContext;
+import java.nio.file.Paths;
+
+@ExtendWith(ContextCaptureExtension.class)
 public class BaseTest {
+    protected ExtensionContext extensionContext; // <- теперь доступно в наследниках
+
     Playwright playwright;
     Browser browser;
     BrowserContext context;

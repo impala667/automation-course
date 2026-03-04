@@ -118,7 +118,7 @@
                 <version>${surefire.version}</version>
                 <configuration>
                     <useSystemClassLoader>false</useSystemClassLoader>
-                    <redirectTestOutputToFile>true</redirectTestOutputToFile>
+                    <redirectTestOutputToFile>false</redirectTestOutputToFile>
                     <argLine>
                         -Dfile.encoding=UTF-8
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectjweaver.version}/aspectjweaver-${aspectjweaver.version}.jar"

@@ -10,12 +10,12 @@ import com.microsoft.playwright.Page;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class testHomePageVisualTest extends BaseTest {
+public class TestestHomePageVisualTest extends BaseTest {
     @Test
     void compareScreenshots() throws IOException {
         page.navigate("https://the-internet.herokuapp.com/");
         Path actualPath = Paths.get("target/screenshots/actual.png");
-        Path expectedPath = Paths.get("expected.png");
+        Path expectedPath = Paths.get("src/test/resources/expected.png");
         Path diffPath = Paths.get("target/screenshots/diff.png");
         page.screenshot(new Page.ScreenshotOptions()
                 .setPath(actualPath));

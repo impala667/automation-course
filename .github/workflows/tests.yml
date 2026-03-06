@@ -48,7 +48,7 @@ jobs:
 
       # Шаг 8: Запуск конкретного тестового класса ExampleTest
       - name: Run tests
-        run: mvn test -Dtest=testHomePageVisualTest
+        run: mvn test "-Dtest=LoginPageTest,AddRemoveElementsTest"
 
       # Шаг 9: Загрузка результатов тестов как артефакт
       # Выполняется всегда (даже если тесты упали) для отладки
@@ -59,6 +59,13 @@ jobs:
         with:
           name: test-results
           path: target/surefire-reports/
+
+      - name: Upload test results allure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: target/allure-results/
 
       - name: Upload artifacts
         if: always()

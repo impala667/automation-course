@@ -33,7 +33,7 @@ public class CartTest extends BaseTest {
     @AfterEach
     void attachScreenshotOnFailure() {
         // Используем поле, унаследованное от BaseTest
-        if (extensionContext.getExecutionException().isPresent()) {
+        if (true) {
             System.out.println("Тест упал, делаем скриншот");
             try {
                 byte[] screenshot = page.screenshot();

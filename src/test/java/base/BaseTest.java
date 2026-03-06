@@ -1,13 +1,12 @@
 package base;
 
 import com.microsoft.playwright.*;
+import java.nio.file.*;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.api.extension.ExtensionContext;
 
-@ExtendWith(ContextCaptureExtension.class)
+
+
 public class BaseTest {
-    protected ExtensionContext extensionContext; // <- теперь доступно в наследниках
 
     Playwright playwright;
     Browser browser;
@@ -20,15 +19,24 @@ public class BaseTest {
         browser = playwright.chromium().launch(new BrowserType.LaunchOptions()
                 .setHeadless(true)
                 .setSlowMo(1500));
-        context = browser.newContext();
+        context = browser.newContext(new Browser.NewContextOptions()
+                .setRecordVideoDir(Paths.get("target/videos/")));
         page = context.newPage();
     }
 
     @AfterEach
     void tearDown() {
-        page.close();
-        context.close();
-        browser.close();
-        playwright.close();
+        if (page != null) {
+            page.close();
+        }
+        if (context != null) {
+            context.close();
+        }
+        if (browser != null) {
+            browser.close();
+        }
+        if (playwright != null) {
+            playwright.close();
+        }
     }
 }

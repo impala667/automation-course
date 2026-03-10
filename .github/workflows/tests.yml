@@ -44,7 +44,9 @@ jobs:
       # Шаг 7: Установка браузера Chromium для Playwright
       # Устанавливается только Chromium для экономии времени и места
       - name: Install Playwright browsers
-        run: mvn exec:java -Dexec.mainClass="com.microsoft.playwright.CLI" -Dexec.args="install chromium firefox"
+        run: |
+          mvn exec:java -Dexec.mainClass="com.microsoft.playwright.CLI" -Dexec.args="install chromium firefox"
+          mvn exec:java -Dexec.mainClass="com.microsoft.playwright.CLI" -Dexec.args="install-deps"
 
       # Шаг 8: Запуск конкретного тестового класса ExampleTest
       - name: Run tests

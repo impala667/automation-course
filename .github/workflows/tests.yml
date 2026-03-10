@@ -55,9 +55,6 @@ jobs:
       # Шаг 9: Загрузка результатов тестов как артефакт
       # Выполняется всегда (даже если тесты упали) для отладки
       # Сохраняет отчеты Surefire в артефакт с именем "test-results"
-      - name: List allure-results
-        if: always() 
-        run: ls -la target/allure-results/ || echo "allure-results not found"
 
       - name: Upload test results
         if: always()

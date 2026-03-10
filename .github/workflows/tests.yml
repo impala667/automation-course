@@ -44,11 +44,11 @@ jobs:
       # Шаг 7: Установка браузера Chromium для Playwright
       # Устанавливается только Chromium для экономии времени и места
       - name: Install Playwright browsers
-        run: mvn exec:java -Dexec.mainClass="com.microsoft.playwright.CLI" -Dexec.args="install chromium"
+        run: mvn exec:java -Dexec.mainClass="com.microsoft.playwright.CLI" -Dexec.args="install chromium firefox"
 
       # Шаг 8: Запуск конкретного тестового класса ExampleTest
       - name: Run tests
-        run: mvn test "-Dtest=LoginPageTest,AddRemoveElementsTest"
+        run: mvn test "-Dtest=ParallelNavigationTest"
 
       # Шаг 9: Загрузка результатов тестов как артефакт
       # Выполняется всегда (даже если тесты упали) для отладки

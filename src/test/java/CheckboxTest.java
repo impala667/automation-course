@@ -37,7 +37,7 @@ public class CheckboxTest extends BaseTest {
     private void checkHeader() {
         Locator pageHeader = page.locator("h3");
         assertTrue(pageHeader.isVisible());
-        assertEquals("Checkboxess", pageHeader.textContent());
+        assertEquals("Checkboxes", pageHeader.textContent());
     }
 
     @Step("Проверка количества чекбоксов")

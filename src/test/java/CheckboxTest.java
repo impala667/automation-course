@@ -9,6 +9,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
+import com.aventstack.extentreports.Status;
 
 import org.junit.jupiter.api.Test;
 
@@ -31,6 +32,7 @@ public class CheckboxTest extends BaseTest {
     @Step("Переход на страницу /checkboxes")
     private void navigateToCheckboxesPage() {
         page.navigate("https://the-internet.herokuapp.com/checkboxes");
+        extentTest.log(Status.INFO, "Переход на страницу /checkboxes");
     }
 
     @Step("Проверка заголовка страницы")
@@ -38,12 +40,14 @@ public class CheckboxTest extends BaseTest {
         Locator pageHeader = page.locator("h3");
         assertTrue(pageHeader.isVisible());
         assertEquals("Checkboxes", pageHeader.textContent());
+        extentTest.log(Status.INFO, "Проверка заголовка страницы");
     }
 
     @Step("Проверка количества чекбоксов")
     private void checkboxesCountCheck() {
         checkbox = page.locator("input[type=checkbox]");
         assertEquals(2, checkbox.count());
+        extentTest.log(Status.INFO, "Проверка количества чекбоксов");
     }
 
     @Step("Проверка изменения состояния чекбоксов")
@@ -58,6 +62,7 @@ public class CheckboxTest extends BaseTest {
                 assertTrue(checkbox.nth(i).isChecked());
             }
         }
+        extentTest.log(Status.INFO, "Проверка изменения состояния чекбоксов");
     }
 
     @Step("Возврат состояния чекбоксов на начальное")
@@ -65,5 +70,6 @@ public class CheckboxTest extends BaseTest {
         for (int i = 0; i < 2; i++) {
             checkbox.nth(i).click();
         }
+        extentTest.log(Status.INFO, "Возврат состояния чекбоксов на начальное");
     }
 }

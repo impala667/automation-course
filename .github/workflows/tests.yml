@@ -70,6 +70,13 @@ jobs:
           name: test-results-allure
           path: target/allure-results/
 
+      - name: Upload test results ExtentTest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-ExtentTest
+          path: target/extent-report.html
+
       - name: Generate Allure Report
         if: always()
         run: mvn allure:report -B
@@ -80,7 +87,6 @@ jobs:
         with:
           name: test-report-allure
           path: target/site/allure-maven-plugin
-          retention-days: 30
 
       - name: Upload artifacts
         if: always()

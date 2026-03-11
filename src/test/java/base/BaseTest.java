@@ -1,18 +1,23 @@
 package base;
 
 import com.microsoft.playwright.*;
-import java.nio.file.*;
+
+import extensions.ScreenshotExtension;
+import io.qameta.allure.Step;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
+import java.nio.file.Paths;
 
-
-
+@ExtendWith(ScreenshotExtension.class)
 public class BaseTest {
+
+    public Page page;
 
     Playwright playwright;
     Browser browser;
     BrowserContext context;
-    public Page page;
 
+    @Step("Инициализация браузера, контекста и страницы")
     @BeforeEach
     void setUp() {
         playwright = Playwright.create();
@@ -24,6 +29,7 @@ public class BaseTest {
         page = context.newPage();
     }
 
+    @Step("Закрытие браузера, контекста и страницы")
     @AfterEach
     void tearDown() {
         if (page != null) {

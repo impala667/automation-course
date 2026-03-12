@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 
 import com.microsoft.playwright.Locator;
 
-import base.BaseTest;
+import base.BaseTestExt;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 
 @Epic("Тестирование веб интерфейса the-internet.herokuapp.com")
 @Feature("Страница Checkboxes")
-public class CheckboxTest extends BaseTest {
+public class CheckboxTest extends BaseTestExt {
     Locator checkbox;
 
     @Test

@@ -50,7 +50,7 @@ jobs:
 
       # Шаг 8: Запуск конкретного тестового класса ExampleTest
       - name: Run tests
-        run: mvn clean test "-Dtest=AdvancedReportingTest"
+        run: mvn clean test "-Dtest=DynamicLoadingTraceTest"
 
       # Шаг 9: Загрузка результатов тестов как артефакт
       # Выполняется всегда (даже если тесты упали) для отладки
@@ -96,3 +96,11 @@ jobs:
           path: |
             target/screenshots/
             target/videos/
+
+      - name: Upload Playwright Traces
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-playwright-traces
+          path: target/traces/
+

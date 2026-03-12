@@ -3,7 +3,7 @@ package extensions;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.microsoft.playwright.Page;
-import base.BaseTest;
+import base.BaseTestExt;
 import io.qameta.allure.Allure;
 import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -16,7 +16,7 @@ public class ScreenshotExtension implements AfterTestExecutionCallback {
     @Override
     public void afterTestExecution(ExtensionContext context) {
         Object testInstance = context.getTestInstance().orElse(null);
-        BaseTest baseTest = (BaseTest) testInstance;
+        BaseTestExt baseTest = (BaseTestExt) testInstance;
         Page page = baseTest.page;
         byte[] screenshot;
         ExtentTest extentTest = baseTest.extentTest;

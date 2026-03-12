@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 
 import com.microsoft.playwright.Locator;
 import com.aventstack.extentreports.Status;
-import base.BaseTest;
+import base.BaseTestExt;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 
 @Epic("Тестирование веб интерфейса the-internet.herokuapp.com")
 @Feature("Страница JavaScript Alerts")
-public class AdvancedReportingTest extends BaseTest {
+public class AdvancedReportingTest extends BaseTestExt {
     Locator button;
 
     @Test

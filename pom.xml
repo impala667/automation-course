@@ -20,7 +20,7 @@
         <assertj.version>3.27.3</assertj.version>
         <aspectjweaver.version>1.9.22</aspectjweaver.version>
         <playwright.version>1.50.0</playwright.version>
-        <jackson-databind.version>2.17.0</jackson-databind.version>
+        <jackson-databind.version>2.20.0</jackson-databind.version>
         <s3.version>2.31.5</s3.version>
         <surefire.version>3.0.0</surefire.version>
         <compiler.version>3.11.0</compiler.version>
@@ -153,7 +153,15 @@
             <artifactId>image-comparison</artifactId>
             <version>4.4.0</version>
         </dependency>
-    </dependencies>
+                <!-- Source: https://mvnrepository.com/artifact/tools.jackson.core/jackson-databind -->
+        <dependency>
+            <groupId>tools.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>3.0.3</version>
+            <scope>compile</scope>
+        </dependency>
+    
+   </dependencies>
 
     <build>
         <plugins>

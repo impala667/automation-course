@@ -21,14 +21,15 @@ public class BaseTestMobile {
         browser = playwright.chromium().launch(new BrowserType.LaunchOptions()
                 .setHeadless(true)
                 .setSlowMo(1500));
-        Browser.NewContextOptions iPad11Pro = new Browser.NewContextOptions()
-                .setViewportSize(834, 1194)
+        Browser.NewContextOptions samsungS22Ultra = new Browser.NewContextOptions()
+                .setViewportSize(412, 915)
                 .setUserAgent(
-                        "Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1")
+                        "Mozilla/5.0 (Linux; Android 13; SM-S908U) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36")
                 .setIsMobile(true)
-                .setDeviceScaleFactor(2)
+                .setDeviceScaleFactor(3.5)
                 .setHasTouch(true);
-        context = browser.newContext(iPad11Pro);
+
+        context = browser.newContext(samsungS22Ultra);
         page = context.newPage();
 
     }

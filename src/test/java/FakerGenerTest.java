@@ -2,7 +2,6 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
-
 import com.github.javafaker.Faker;
 import com.microsoft.playwright.APIResponse;
 import com.microsoft.playwright.Route;

@@ -3,32 +3,27 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
-import com.microsoft.playwright.Locator;
-import com.microsoft.playwright.Page.GetByRoleOptions;
-import com.microsoft.playwright.options.AriaRole;
-import com.microsoft.playwright.options.WaitForSelectorState;
 
-import base.BaseTest;
+import base.BaseTestDI;
+import pages.DynamicControlsPage;
 
-public class DynamicControlsTest extends BaseTest {
+public class DynamicControlsTest extends BaseTestDI {
+    private DynamicControlsPage controlsPage;
+
     @Test
-    void testDynamicCheckbox() {
-        page.navigate("https://the-internet.herokuapp.com/dynamic_controls");
-        Locator checkbox = page.locator("input[type='checkbox']");
-        assertTrue(checkbox.isVisible());
-        Locator remove = page.getByRole(AriaRole.BUTTON, new GetByRoleOptions().setName("Remove"));
-        remove.click();
-        checkbox.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.HIDDEN));
-        assertFalse(checkbox.isVisible());
-        Locator message = page.locator("#message");
-        assertTrue(message.isVisible());
-        assertEquals("It's gone!", message.textContent());
-        Locator add = page.getByRole(AriaRole.BUTTON, new GetByRoleOptions().setName("Add"));
-        add.click();
-        checkbox.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
-        assertTrue(checkbox.isVisible());
-        assertTrue(message.isVisible());
-        assertEquals("It's back!", message.textContent());
-
+    public void testCheckboxRemoval() {
+        controlsPage = new DynamicControlsPage(page);
+        controlsPage.navigate();
+        assertTrue(controlsPage.isCheckboxVisible());
+        controlsPage.clickRemoveButton();
+        controlsPage.waitForCheckboxHidden();
+        assertFalse(controlsPage.isCheckboxVisible());
+        assertTrue(controlsPage.isMessageVisible());
+        assertEquals("It's gone!", controlsPage.MessageText());
+        controlsPage.clickAddButton();
+        controlsPage.waitForCheckboxVisible();
+        assertTrue(controlsPage.isCheckboxVisible());
+        assertTrue(controlsPage.isMessageVisible());
+        assertEquals("It's back!", controlsPage.MessageText());
     }
 }

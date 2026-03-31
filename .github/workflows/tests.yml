@@ -50,9 +50,8 @@ jobs:
 
       # Шаг 8: Запуск конкретного тестового класса ExampleTest
       - name: Run tests
-        run: mvn clean test "-Dtest=StatusCodeTest"
-        env:
-          ENV: dev
+        run: mvn clean test -Dtest=StatusCodeTest -Denv=dev
+
 
       # Шаг 9: Загрузка результатов тестов как артефакт
       # Выполняется всегда (даже если тесты упали) для отладки
